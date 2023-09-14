@@ -9,56 +9,56 @@
   {
     "cover_img": "https://i.ibb.co/QHybwWC/Rectangle-2-3.png",
     "course_name": "Introduction to Algorithms",
-    "details": "Algorithms are fundamental to computer science and play a critical role in solving a wide range of problems efficiently and effectively.",
+    "details": "Algorithms are fundamental to computer science and play a critical role in solving a wide range of problems...",
     "price": 25000,
     "credit": 2
   },
   {
     "cover_img": "https://i.ibb.co/gZ7q8Gs/Rectangle-2-4.png",
     "course_name": "Introduction to C++ for DSA",
-    "details": "C++ is a powerful and versatile programming language that is commonly used for Data Structures and Algorithms (DSA).",
+    "details": "C++ is a powerful and versatile programming language that is commonly used for Data Structures and Algorithms.",
     "price": 10000,
     "credit": 10
   },
   {
     "cover_img": "https://i.ibb.co/p0Yydrp/Rectangle-3.png",
     "course_name": "Basic Data Structures",
-    "details": "Data structures are fundamental components in computer science and programming.",
+    "details": "Data structures are fundamental components in computer science and programming.They are used to store... ",
     "price": 35000,
     "credit": 5
   },
   {
     "cover_img": "https://i.ibb.co/sPLDvqF/Rectangle-2.png",
     "course_name": "Introduction to OOP Python",
-    "details": "Object-Oriented Programming (OOP) is a programming paradigm that focuses on organizing code into objects, which are instances of classes.",
+    "details": "Object-Oriented Programming (OOP) is a programming paradigm that focuses on organizing code into objects...",
     "price": 19000,
     "credit": 5
   },
   {
     "cover_img": "https://i.ibb.co/0yqZgWd/Rectangle-2-5.png",
     "course_name": "Software Engineering",
-    "details": "Software engineering is a discipline within computer science and technology that focuses on the systematic and organized development of software systems.",
+    "details": "Software engineering is a discipline within computer science and technology that focuses on the systematic...",
     "price": 23000,
     "credit": 2
   },
   {
     "cover_img": "https://i.ibb.co/7NQqf9q/Rectangle-3-1.png",
     "course_name": "AWS, Cloud Computing",
-    "details": "AWS is one of the world's leading cloud computing platforms, offering a wide range of cloud services and solutions to individuals, businesses, and organizations.",
+    "details": "AWS is one of the world's leading cloud computing platforms, offering a wide range of cloud services and solutions.",
     "price": 32000,
     "credit": 5
   },
   {
     "cover_img": "https://i.ibb.co/RTYLZvV/Rectangle-2-1.png",
     "course_name": "Database (MySQL)",
-    "details": "MySQL is an open-source relational database management system (RDBMS) that is widely used for building and managing databases in various applications, ranging from small websites to large enterprise systems.",
+    "details": "MySQL is an open-source relational database management system that is widely used for building and managing.",
     "price": 29000,
     "credit": 4
   },
   {
     "cover_img": "https://i.ibb.co/WpcGsDK/Rectangle-2-6.png",
     "course_name": "Problem-Solving Part",
-    "details": "Problem-solving is a fundamental skill in computer science, software engineering, and many other fields. It involves systematically approaching and solving complex problems.",
+    "details": "Problem-solving is a fundamental skill in computer science, software engineering, and many other fields....",
     "price": 26000,
     "credit": 3
   }
