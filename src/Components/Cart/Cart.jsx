@@ -8,10 +8,10 @@ const Cart = ({ selectCourse, totalPrice, totalCredit, remaining }) => {
         </h2>
         <hr className="text-[#1C1B1B33] my-4" />
         <h2 className="text-xl text-[#1C1B1B] font-bold mb-5">Course Name</h2>
-        {selectCourse.map((course) => (
-          <li className="list-decimal text-[#1C1B1B99]" key={course.id}>
-            {course.course_name}
-          </li>
+        {selectCourse.map((course, index) => (
+          <p className="text-[#1C1B1B99]" key={course.id}>
+            {index + 1} {course.course_name}
+          </p>
         ))}
         <hr className="text-[#1C1B1B33] mt-6" />
         <h5 className="text-[#1C1B1BCC] font-medium my-4">
@@ -29,6 +29,6 @@ Cart.propTypes = {
   selectCourse: PropTypes.array.isRequired,
   totalPrice: PropTypes.object.isRequired,
   totalCredit: PropTypes.object.isRequired,
-  remaining: PropTypes.object.isRequired
+  remaining: PropTypes.object.isRequired,
 };
 export default Cart;

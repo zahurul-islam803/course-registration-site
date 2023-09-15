@@ -7,47 +7,46 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Courses = () => {
-
   // load all course
   const [courses, setCourses] = useState([]);
   const [selectCourse, setSelectCourse] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalCredit, setTotalCredit] = useState(0);
   const [remaining, setRemaining] = useState(20);
-  useEffect(()=>{
-    fetch('./course.json')
-    .then(res => res.json())
-    .then(data => setCourses(data));
-  },[])
+  useEffect(() => {
+    fetch("./course.json")
+      .then((res) => res.json())
+      .then((data) => setCourses(data));
+  }, []);
 
   // select button
-  const handleToSelect = (course)=>{
-    const isExist = selectCourse.find(item => item.id == course.id);
+  const handleToSelect = (course) => {
+    const isExist = selectCourse.find((item) => item.id == course.id);
     let coursePrice = course.price;
     let courseCredit = course.credit;
-    if(isExist){
-     return toast('The course name is already exist')
-    }else{
-        selectCourse.forEach(price => {
+    if (isExist) {
+      return toast("The course name is already exist");
+    } else {
+      selectCourse.forEach((price) => {
         coursePrice = coursePrice + price.price;
       });
-      selectCourse.forEach(credit =>{
+      selectCourse.forEach((credit) => {
         courseCredit = courseCredit + credit.credit;
       });
       const totalRemaining = 20 - courseCredit;
-      if(totalRemaining<0){
-         toast('Total credit remaining can not be less than 0');
+      if (totalRemaining < 0) {
+        toast("Total credit remaining can not be less than 0");
       }
-      if(courseCredit>20){
+      if (courseCredit > 20) {
         return toast("Total credit can not be more than 20");
-      }else{ 
+      } else {
         setTotalPrice(coursePrice);
         setTotalCredit(courseCredit);
         setRemaining(totalRemaining);
-        setSelectCourse([...selectCourse,course]);
+        setSelectCourse([...selectCourse, course]);
       }
     }
-  }
+  };
 
   return (
     <div className="flex flex-col-reverse md:flex-row lg:flex-row gap-6 justify-around">
