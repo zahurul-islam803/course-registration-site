@@ -13,6 +13,7 @@ const Courses = () => {
   const [selectCourse, setSelectCourse] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalCredit, setTotalCredit] = useState(0);
+  const [remaining, setRemaining] = useState(0);
   useEffect(()=>{
     fetch('./course.json')
     .then(res => res.json())
@@ -32,16 +33,25 @@ const Courses = () => {
       });
       selectCourse.forEach(credit =>{
         courseCredit = courseCredit + credit.credit;
-      })
-      setTotalPrice(coursePrice);
-      setTotalCredit(courseCredit);
-      setSelectCourse([...selectCourse,course]);
+      });
+      const totalRemaining = 20 - courseCredit;
+      if(totalRemaining<0){
+        toast('Total credit remaining can not be less than 0');
+      }
+      if(courseCredit>20){
+        toast("Total credit can not be more than 20");
+      }else{ 
+        setTotalPrice(coursePrice);
+        setTotalCredit(courseCredit);
+        setRemaining(totalRemaining);
+        setSelectCourse([...selectCourse,course]);
+      }
     }
   }
 
   return (
-    <div className="flex gap-6 justify-around">
-      <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-3/4">
+    <div className="flex flex-col-reverse md:flex-row lg:flex-row gap-6 justify-around">
+      <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-3/4 mx-auto">
         {courses.map((course) => (
           <div key={course.id} className="card bg-white rounded-xl p-4 mx-auto">
             <img
@@ -86,6 +96,7 @@ const Courses = () => {
         selectCourse={selectCourse}
         totalPrice={totalPrice}
         totalCredit={totalCredit}
+        remaining={remaining}
       ></Cart>
       <ToastContainer></ToastContainer>
     </div>
