@@ -13,7 +13,7 @@ const Courses = () => {
   const [selectCourse, setSelectCourse] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalCredit, setTotalCredit] = useState(0);
-  const [remaining, setRemaining] = useState(0);
+  const [remaining, setRemaining] = useState(20);
   useEffect(()=>{
     fetch('./course.json')
     .then(res => res.json())
@@ -26,7 +26,7 @@ const Courses = () => {
     let coursePrice = course.price;
     let courseCredit = course.credit;
     if(isExist){
-      toast('The course name is already exist')
+     return toast('The course name is already exist')
     }else{
         selectCourse.forEach(price => {
         coursePrice = coursePrice + price.price;
@@ -36,10 +36,10 @@ const Courses = () => {
       });
       const totalRemaining = 20 - courseCredit;
       if(totalRemaining<0){
-        toast('Total credit remaining can not be less than 0');
+         toast('Total credit remaining can not be less than 0');
       }
       if(courseCredit>20){
-        toast("Total credit can not be more than 20");
+        return toast("Total credit can not be more than 20");
       }else{ 
         setTotalPrice(coursePrice);
         setTotalCredit(courseCredit);
