@@ -3,17 +3,41 @@ import { FiDollarSign } from "react-icons/fi";
 import { useEffect } from "react";
 import { useState } from "react";
 import Cart from "../Cart/Cart";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Courses = () => {
 
   // load all course
   const [courses, setCourses] = useState([]);
+  const [selectCourse, setSelectCourse] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalCredit, setTotalCredit] = useState(0);
   useEffect(()=>{
     fetch('./course.json')
     .then(res => res.json())
     .then(data => setCourses(data));
   },[])
 
+  // select button
+  const handleToSelect = (course)=>{
+    const isExist = selectCourse.find(item => item.id == course.id);
+    let coursePrice = course.price;
+    let courseCredit = course.credit;
+    if(isExist){
+      toast('The course name is already exist')
+    }else{
+        selectCourse.forEach(price => {
+        coursePrice = coursePrice + price.price;
+      });
+      selectCourse.forEach(credit =>{
+        courseCredit = courseCredit + credit.credit;
+      })
+      setTotalPrice(coursePrice);
+      setTotalCredit(courseCredit);
+      setSelectCourse([...selectCourse,course]);
+    }
+  }
 
   return (
     <div className="flex gap-6 justify-around">
@@ -47,7 +71,10 @@ const Courses = () => {
                 </p>
               </div>
               <div className="card-actions">
-                <button className="bg-[#2F80ED] w-full p-2 text-lg text-white rounded-lg font-semibold">
+                <button
+                  onClick={() => handleToSelect(course)}
+                  className="bg-[#2F80ED] w-full p-2 text-lg text-white rounded-lg font-semibold"
+                >
                   Select
                 </button>
               </div>
@@ -55,7 +82,12 @@ const Courses = () => {
           </div>
         ))}
       </div>
-      <Cart></Cart>
+      <Cart
+        selectCourse={selectCourse}
+        totalPrice={totalPrice}
+        totalCredit={totalCredit}
+      ></Cart>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
